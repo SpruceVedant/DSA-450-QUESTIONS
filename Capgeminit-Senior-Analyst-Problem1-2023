@@ -1,0 +1,79 @@
+Problem Statement :
+
+A sequence is considered as special only if there are no such pair of adjacent numbers in the sequence such that the pair consists of both odd or both even number.
+You are provided with T test cases and for each test case you are given an array arr of size N. For each test case print "YES" it the sequence as special otherwise print "no"
+
+Input Format:
+
+The input is given in the following format:
+
+  The first line contains an integer T denoting the number of test cane.
+  Subsequent T test cases will have the first line as a single integer N, denoting the number of elements in the array arr
+  Then, N subsequent lines contain a single integer, denoting the value of the element of the array arr
+
+The input will be read from the STDIN by the candidate
+
+Output Format:
+
+  For each test case print "YES" if the sequence is special otherwise print "NO". The output will be matched to the candidate's output printed on the STDOUT
+
+Constraints:
+1<=T≤ 100,
+1≤ N ≤ 10
+1 ≤ arr[i] ≤ 10^5,
+
+Example:
+
+Input:
+1
+4
+1
+2
+3
+4
+
+Output:
+YES
+
+Explanation:
+
+For the given sequence there are no such pair of adjacent numbers that are both odd or both even numbers.
+
+
+-------------------------------------------------------------------MY SOLUTION--------------------------------------------------------------------------------
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int T ; 
+    cin>> T;
+    int N;
+    for(int i = 1; i<= T ; i++){
+        N = 0;
+        cin>>N;
+        int arr[N], temp;
+        temp = 0;
+        cin>>arr[0];
+        for(int j = 1; j<N ; j++){
+            cin>>arr[j];
+            if(arr[j-1]%2 == 0 && arr[j] % 2 ==0){
+                cout<<"NO";
+                temp = 1;
+                break;
+            }
+            if(arr[j-1]%2!= 0 && arr[j] % 2!=0){
+                cout<<"NO";
+                temp = 1;
+                break;
+            }
+        }
+        if(temp!=1)
+        cout<<"YES";
+    }
+
+    return 0;
+}
